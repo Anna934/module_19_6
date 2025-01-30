@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        {% block pagename %}
+        <h1>Главная страница</h1>
+        {% endblock %}
+    </header>
+    <nav>
+        {% block menu %}
+        <div class="nav">
+            <li class="menu">
+                <li>
+                    <a href="/">Главная</a>
+                </li>
+                <li>
+                    <a href="/games">Магазин</a>
+                </li>
+                <li>
+                    <a href="/cart">Корзина</a>
+                </li>
+                </li>
+                    <a href="{% url 'news' %}">Новости</a>  <!-- Добавляем ссылку на новости -->
+                </li
+            </ul>
+        </div>
+        {% endblock %}
+    </nav>
+    <content>
+        {% block content %}
+        <ul>
+        <h2>{% for i in games_list %}
+            <li>{{ i.title }} | {{ i.description }}. Стоимость: {{ i.cost }}
+                <button>Купить</button></li>
+            {% endfor %}</h2>
+        </ul>
+        {% endblock %}
+    </content>
+</body>
+</html>
+<style>
+    body{
+        margin: 0 auto;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 30px;
+    }
+    h2{
+        display: grid;
+    }
+    a{
+        font-weight: bold;
+        text-decoration: none;
+    }
+    ul{
+        display:grid;
+        justify-content: center;
+    }
+    li{
+        margin-top: 15px;
+    }
+    .container{
+        display:grid;
+        justify-content: center;
+        align-items: center;
+    }
+    button{
+        margin: 0 auto;
+        margin: 10px 0 0 10px;
+        outline: none;
+        border: none;
+        background: transparent;
+        border-radius: 5px;
+        background-color: blue;
+        color: #ffff;
+        font-size: 20px;
