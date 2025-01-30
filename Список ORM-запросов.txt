@@ -1,0 +1,18 @@
+python manage.py shell
+
+from task1.models import Buyer
+from task1.models import Game
+Buyer.objects.create(name='Max', balance=3300, age='27')
+<Buyer: Max>
+Buyer.objects.create(name='Marusya', balance=150.15, age='16')
+<Buyer: Marusya>
+Game.objects.create(title='Compas', cost=220.33, size=102, description='Navigation')
+<Game: Compas>
+Game.objects.create(title='Sudoku', cost=98.99, size=75, description='Logic game', age_limited=True)
+<Game: Sudoku>
+ Buyer.objects.filter(age__gt=18)
+<QuerySet [<Buyer: Max>]>
+Buyer.objects.all()
+<QuerySet [<Buyer: Max>, <Buyer: Marusya>]>
+Buyer.objects.get(id=10).delete()
+(1, {'task1.Buyer': 1})
